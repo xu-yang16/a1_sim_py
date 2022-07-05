@@ -1,4 +1,5 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 Respawn quadruped robot in Gazebo Simulator
@@ -32,9 +33,9 @@ while not rospy.is_shutdown():
     try:
         robot_name = input("> Choose Your Robot Name \n1) a1 \n2) go1 \n\n>>> ")
 
-        if robot_name == "1":
+        if robot_name == 1:
             robot_name = "a1_gazebo"
-        elif robot_name == "2":
+        elif robot_name == 2:
             robot_name = "go1_gazebo"
 
         # x, y, z, _ = input("> Type xyz robot spawn location ex) 0 0 0 : ").split()
