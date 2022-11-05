@@ -3,7 +3,7 @@
 
 # Author: lnotspotl
 
-import rospy
+import rclpy
 import numpy as np
 
 class PID_controller(object):
@@ -28,7 +28,7 @@ class PID_controller(object):
         error = self.desired_roll_pitch - np.array([roll, pitch])
 
         # determine time step
-        t_now = rospy.Time.now()
+        t_now = rclpy.time.Time()
         step = (t_now - self.last_time).to_sec()
 
         # I term update
@@ -56,11 +56,11 @@ class PID_controller(object):
         return P_ret + I_ret + D_ret
 
     def reset(self):
-        self.last_time = rospy.Time.now()
+        self.last_time = rclpy.time.Time()
         self.I_term = np.array([0.0,0.0])
         self.D_term = np.array([0.0,0.0])
         self.last_error = np.array([0.0,0.0])
 
-    def desired_RP_angles(des_roll, des_pitch):
+    def desired_RP_angles(self, des_roll, des_pitch):
         # set desired roll and pitch angles
         self.desired_roll_pitch = np.array([des_roll, des_pitch])

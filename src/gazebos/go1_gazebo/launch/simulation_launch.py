@@ -71,7 +71,7 @@ def generate_launch_description():
         output="screen",
     )
 
-    rviz2_arg = DeclareLaunchArgument('rviz2', default_value='true', description='Open RViz.')
+    rviz2_arg = DeclareLaunchArgument('rviz2', default_value='false', description='Open RViz.')
     rviz2 = Node(
         package="rviz2",
         executable="rviz2",

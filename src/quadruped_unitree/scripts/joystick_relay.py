@@ -11,7 +11,7 @@
 #   * Enrique Fernandez
 #   * Siegfried-A. Gevatter
 
-import rospy
+import rclpy
 import actionlib
 from twist_mux_msgs.msg import JoyPriorityAction, JoyTurboAction
 from geometry_msgs.msg import Twist

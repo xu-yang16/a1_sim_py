@@ -3,7 +3,6 @@
 
 #Author: lnotspotl
 
-import rospy
 import numpy as np
 
 class StandController(object):

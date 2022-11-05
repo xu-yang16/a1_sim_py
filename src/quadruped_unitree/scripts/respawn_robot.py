@@ -10,7 +10,7 @@ rosrun
 
 # gazebo_msgs/SetModelState
 
-import rospy
+import rclpy
 from gazebo_msgs.msg import ModelState 
 from gazebo_msgs.srv import SetModelState 
 
@@ -28,6 +28,13 @@ def is_invalid_angle(angle):
         return True
     else:
         return False
+
+def main(args=None):       # ROS2节点主入口main函数
+    rclpy.init(args=args)      # ROS2 Python接口初始化
+    node = GazeboLinkPose("gazebo_link_pose")  # 创建ROS2节点对象并进行初始化
+    rclpy.spin(node)
+    node.destroy_node()     # 销毁节点对象
+    rclpy.shutdown()        # 关闭ROS2 Python接口
 
 while not rospy.is_shutdown():
     try:

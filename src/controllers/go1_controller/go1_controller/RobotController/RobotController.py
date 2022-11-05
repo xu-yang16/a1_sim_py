@@ -4,7 +4,7 @@
 #Author: lnotspotl
 
 import numpy as np
-import tf
+import tf2_ros
 
 from . StateCommand import State, Command, BehaviorState
 from . RestController import RestController

@@ -5,10 +5,10 @@
 #Modified by: lnotspotl
 
 import numpy as np
-import rospy
+import rclpy
 from . GaitController import GaitController
 from . PIDController import PID_controller
-from RoboticsUtilities.Transformations import rotxyz,rotz
+from ..RoboticsUtilities.Transformations import rotxyz,rotz
 
 
 class TrotGaitController(GaitController):
@@ -59,14 +59,14 @@ class TrotGaitController(GaitController):
             if msg.buttons[7]:
                 self.use_imu = not self.use_imu
                 self.use_button = False
-                rospy.loginfo("Trot Gait Controller - Use roll/pitch compensation: " + str(self.use_imu))
+                rclpy.get_logger().info("Trot Gait Controller - Use roll/pitch compensation: " + str(self.use_imu))
 
             elif msg.buttons[6]:
                 self.autoRest = not self.autoRest
                 if not self.autoRest:
                     self.trotNeeded = True
                 self.use_button = False
-                rospy.loginfo("Trot Gait Controller - Use autorest: " + str(self.autoRest))
+                rclpy.get_logger().info("Trot Gait Controller - Use autorest: " + str(self.autoRest))
             
         if not self.use_button:
             if not(msg.buttons[6] or msg.buttons[7]):

@@ -6,7 +6,7 @@
 
 import numpy as np
 from . GaitController import GaitController
-from RoboticsUtilities.Transformations import rotz
+from ..RoboticsUtilities.Transformations import rotz
 
 class CrawlGaitController(GaitController):
     def __init__(self, default_stance, stance_time, swing_time, time_step):

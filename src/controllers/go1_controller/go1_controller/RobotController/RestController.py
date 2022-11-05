@@ -3,10 +3,10 @@
 
 #Author: lnotspotl
 
-import rospy
+import rclpy
 import numpy as np
-from RoboticsUtilities.Transformations import rotxyz
-from . PIDController import PID_controller
+from ..RoboticsUtilities.Transformations import rotxyz
+from .PIDController import PID_controller
 
 class RestController(object):
     def __init__(self, default_stance):
@@ -35,7 +35,7 @@ class RestController(object):
             if msg.buttons[7]:
                 self.use_imu = not self.use_imu
                 self.use_button = False
-                rospy.loginfo("Rest Controller - Use roll/pitch compensation: " + str(self.use_imu))
+                rclpy.get_logger().info("Rest Controller - Use roll/pitch compensation: " + str(self.use_imu))
 
         if not self.use_button:
             if not (msg.buttons[7]):

@@ -4,7 +4,7 @@ This repository contains all the files and code needed to simulate the [a1](http
 The software runs on below envs
 
 * [ROS noetic](http://wiki.ros.org/noetic) and [Ubuntu 20.04](http://www.releases.ubuntu.com/20.04/). 
-* [ROS melodic](http://wiki.ros.org/melodic) and [Ubuntu 18.04](http://www.releases.ubuntu.com/18.04/).
+* [ROS melodic](http://wiki.ros.org/melodic) and [Ubuntu 18.04](http://www.releases.0ubuntu.com/18.04/).
 * There's also [Docker Hub Image](https://hub.docker.com/repository/docker/tge1375/unitree_sim) but I recommend to use native environment for performance.
 
 ## Setup
