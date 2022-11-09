@@ -1,9 +1,9 @@
 # Unitree Quadruped robot simulation - Python version (ROS2)
 
-This repository contains all the files and code needed to simulate the [go1](https://www.unitree.com/products/go1) quadrupedal robot using [Gazebo](http://gazebosim.org/) and [ROS](https://www.ros.org/).
+This repository contains all the files and codes needed to simulate the [go1](https://www.unitree.com/products/go1) quadrupedal robot using [Gazebo](http://gazebosim.org/) and [ROS](https://www.ros.org/).
 The software runs on below envs
 
-* [ROS2 humble](http://wiki.ros.org/noetic).
+* [ROS2 humble](https://docs.ros.org/en/humble/index.html).
 
 ## Setup
 
@@ -14,7 +14,8 @@ The software runs on below envs
 sudo apt install ros-humble-gazebo-ros-pkgs
 # 查看ros版本
 printenv ROS_DISTRO
-
+# install
+sudo apt install ros-humble-gazebo-ros-pkgs
 # test (需要先source)
 gazebo --verbose /opt/ros/humble/share/gazebo_plugins/worlds/gazebo_ros_diff_drive_demo.world
 ros2 topic pub /demo/cmd_demo geometry_msgs/Twist '{linear: {x: 1.0}}' -1
@@ -23,6 +24,8 @@ ros2 topic pub /demo/cmd_demo geometry_msgs/Twist '{linear: {x: 1.0}}' -1
 sudo apt install ros-humble-ros2-control
 sudo apt install ros-humble-gazebo-ros2-control
 sudo apt install ros-humble-ros2-controllers
+sudo apt install ros-humble-twist-mux
+
 # joint state
 sudo apt install ros-humble-joint-state-publisher-gui
 ```
@@ -64,6 +67,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=/key_vel
 <p align="center">
     <img src="./resources/go1_pcl.png" height="300">
 </p>
+
 ---
 
 ## Future Work

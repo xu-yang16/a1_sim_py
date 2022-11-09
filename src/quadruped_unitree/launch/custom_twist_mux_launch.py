@@ -13,18 +13,25 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
+    twist_mux = Node(
+        package="twist_mux",
+        executable="twist_mux",
+        output="screen",
+    )
     twist_marker = Node(
         package="twist_mux",
         executable="twist_marker",
     )
     joystick_relay = Node(
-        package="quadruped_unitree",
-        executable="joystick_relay.py",
-        output="screen",
+        package="custom_twist_mux",
+        executable="node_joystick_relay",
+        output="screen", 
     )
 
 
     ld = LaunchDescription()
+    ld.add_action(twist_mux)
     ld.add_action(twist_marker)
+    ld.add_action(joystick_relay)
 
     return ld
