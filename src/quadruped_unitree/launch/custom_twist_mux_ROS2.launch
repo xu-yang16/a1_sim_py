@@ -1,0 +1,31 @@
+<launch>
+    <let name="joy_vel_in"  value="input_joy/cmd_vel"/>
+    <let name="joy_vel_out" value="joy_vel"/>
+    
+    <!-- final output topic -->
+    <let name="cmd_vel_out" value="twist_mux/cmd_vel"/>
+  
+    <let name="config_locks"  value="$(find-pkg-share custom_twist_mux)/config/twist_mux_locks.yaml"/>
+    <let name="config_topics" value="$(find-pkg-share custom_twist_mux)/config/twist_mux_topics.yaml"/>
+  
+    <let name="config_joy" value="$(find-pkg-share custom_twist_mux)/config/joystick.yaml"/>
+
+    <node pkg="twist_mux" exec="twist_mux" name="twist_mux" output="screen">
+      <remap from="cmd_vel_out" to="$(var cmd_vel_out)"/>
+  
+      <param from="$(var config_locks)"/>
+      <param from="$(var config_topics)"/>
+    </node>
+  
+    <node pkg="twist_mux" exec="twist_marker" name="twist_marker">
+      <remap from="twist"  to="$(var cmd_vel_out)"/>
+      <remap from="marker" to="twist_marker"/>
+    </node>
+  
+    <node pkg="custom_twist_mux" exec="node_joystick_relay" name="joystick_relay" output="screen">
+      <remap from="joy_vel_in"  to="$(var joy_vel_in)"/>
+      <remap from="joy_vel_out" to="$(var joy_vel_out)"/>
+  
+      <param from="$(var config_joy)"/>
+    </node>
+  </launch>

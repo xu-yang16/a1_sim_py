@@ -15,7 +15,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('lib/python{0}/site-packages/'.format(python_version)+package_name+"/config", glob(package_name+'/config/*.*')),
+        ("share/config", glob('/config/*.*')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,

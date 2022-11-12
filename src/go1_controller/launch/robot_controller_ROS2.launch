@@ -1,0 +1,7 @@
+<launch>
+
+    <!-- Robot controller -->
+    <node pkg="go1_controller" exec="node_controller"
+        name="ROBOT_CONTROLLER" output="screen"/>
+
+</launch>

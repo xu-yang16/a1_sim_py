@@ -14,11 +14,19 @@ from launch_ros.substitutions import FindPackageShare
 from time import sleep
 import filecmp
 import xacro
+import launch
 
 package_name = 'go1_gazebo'
 
 
 def generate_launch_description():
+    ld = LaunchDescription()
+
+    # gazebo with empy world
+    new_launch = launch.actions.IncludeLaunchDescription(
+    launch.launch_description_sources.PythonLaunchDescriptionSource(os.path.join(get_package_share_directory('gazebo_ros'), "launch/gazebo.launch.py")))
+    ld.add_action(new_launch)
+
     # robot description
     pkg_share = get_package_share_directory(package_name)
 
@@ -84,7 +92,7 @@ def generate_launch_description():
     ld.add_action(gazebo_use_sim_time)
 
     ld.add_action(robot_state_publisher_node)
-    ld.add_action(joint_state_publisher_node)
+    # ld.add_action(joint_state_publisher_node)
     ld.add_action(spawn_entity)
 
     ld.add_action(controller_spawner)

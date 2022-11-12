@@ -1,0 +1,12 @@
+<launch>
+
+    <!-- Gazebo Simulation -->
+    <include file="$(find-pkg-share go1_gazebo)/launch/simulation_ROS2.launch" />
+
+    <!-- twist mux -->
+    <include file="$(find-pkg-share quadruped_unitree)/launch/custom_twist_mux_ROS2.launch" />
+
+    <!-- Robot Controller -->
+    <include file="$(find-pkg-share go1_controller)/launch/robot_controller_ROS2.launch"/>
+
+</launch>
